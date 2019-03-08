@@ -5,7 +5,7 @@ import { getId } from '../../utils';
 export default class PrescriptionCreate extends React.Component {
 
   componentWillMount() {
-    this.props.reset('patient');
+    this.props.reset('prescription');
     let patient_id = getId(this.props, 'patient_id');
     this.setState({patientId: patient_id})
   }
