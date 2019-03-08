@@ -22,6 +22,9 @@ export default class PrescriptionCreate extends React.Component {
           handleCancel={this.props.handleCancel}
           history={this.props.history}
           patientId={this.state.patientId}
+          prescription={this.props.prescription}
+          removeObject={this.props.removeObject}
+          addObject={this.props.addObject}
         />
         </div>
       </React.Fragment>

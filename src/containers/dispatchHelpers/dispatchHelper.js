@@ -35,7 +35,12 @@ export default function mapDispatchToProps(dispatch) {
     reset(model) {
       return dispatch(actions.reset(`deep.${model}`));
     },
-
+    addObject(model, data){
+      dispatch(actions.push(model, data))
+    },
+    removeObject(model, data){
+      dispatch(actions.change(model, data))
+    },
     handleCancel(model, history, parentResourceDetails = {}) {
       let url = ''
       let redirectTo;

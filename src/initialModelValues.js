@@ -8,6 +8,7 @@ const initialPaitent = {
 const initialPrescription = {
   complaints: '',
   findings: '',
+  prescription_drugs: []
 };
 
 const initialModelValues = {
