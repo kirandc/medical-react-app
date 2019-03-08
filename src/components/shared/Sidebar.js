@@ -16,7 +16,7 @@ class Sidebar extends React.Component {
           <div className="sidebar-content">
             <ul className="sidebar-menu pl-0">
               <li>
-                <Link to="/users" className="d-flex align-items-center">
+                <Link to="/patients" className="d-flex align-items-center">
                   <span className="d-none ">Paitents</span>
                 </Link>
               </li>

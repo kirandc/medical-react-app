@@ -4,8 +4,8 @@ import modifyData from './modifyData';
 import { pluralize } from './../../../utils';
 import { addAlert } from '../../../actionCreators/notificationActionCreators';
 
-const fetchModel = (model, dispatch, history, params = null) => (
-  Api.list(model, params).then((response) => {
+const fetchModel = (model, dispatch, history, params = null, parent = null) => (
+  Api.list(model, params, parent).then((response) => {
     const data = modifyData(model, response.data.data[pluralize(model)]);
     if (response.data.data.count === 0) {
       dispatch(addAlert('No records found!!', 'warning'));

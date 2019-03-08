@@ -17,20 +17,20 @@ const setErrorsOnField = (model, errors, dispatch) => {
   });
 };
 
-const getModelApi = (model, params) => {
+const getModelApi = (model, params, parent) => {
   const methodApi = params.id ? 'update' : 'create';
   const data = {};
   data[model] = params;
 
-  return Api[methodApi](model, data);
+  return Api[methodApi](model, data, parent);
 };
 
 const submitRequest = (params, model, data) => (
   params.id ? updateRecord(model, data) : createRecord(model, data)
 );
 
-const submitModel = (model, params, dispatch, history, is_modal) => {
-  const apiCall = getModelApi(model, params);
+const submitModel = (model, params, dispatch, history, is_modal, parent: null,) => {
+  const apiCall = getModelApi(model, params, parent);
   // return value only for modal box, if error don't close modal box
   let promise = apiCall
 

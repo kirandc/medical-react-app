@@ -14,6 +14,7 @@ export default createStore(
     notificationReducer,
     deep: combineForms({
       patient: initialModelValues.patient,
+      prescription: initialModelValues.prescription,
     }, 'deep'),
   }),
   applyMiddleware(reduxMiddleware, thunk),

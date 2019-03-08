@@ -21,9 +21,13 @@ export function toQueryString(obj) {
   return parts.join('&');
 }
 
-export function getId(props) {
+export function getId(props, new_id = null) {
   if(props.match){
-    return parseInt(props.match.params.id, 10);
+    if(new_id){
+      return parseInt(props.match.params[new_id], 10);
+    }else{
+      return parseInt(props.match.params.id, 10);
+    }
   }
 }
 

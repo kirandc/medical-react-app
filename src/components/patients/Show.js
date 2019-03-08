@@ -41,7 +41,7 @@ export default class PatientShow extends React.Component {
         </div>
         <div>
           <Button color="secondary" onClick={() => this.props.handleCancel('patient', this.props.history)}>Cancel</Button>
-          <Link to={`/patient/${this.props.patient.id}/prescriptions`} color="primary" size="sm" className="btn btn-primary">Presciptions</Link>
+          <Link to={`/patients/${this.props.patient.id}/prescriptions`} color="primary" size="sm" className="btn btn-primary">Presciptions</Link>
         </div>
       </div>
     )

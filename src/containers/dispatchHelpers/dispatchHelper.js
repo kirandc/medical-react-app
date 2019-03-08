@@ -9,26 +9,26 @@ export default function mapDispatchToProps(dispatch) {
       dispatch(actions.change(`deep.${model}`, obj))
     },
 
-    load(model, list, id) {
-      modelHelper.loadModel(model, list, id, dispatch, this.history);
+    load(model, list, id, params: null, parent = null) {
+      modelHelper.loadModel(model, list, id, params: null, dispatch, this.history, parent);
     },
 
     setTouched(model) {
       return dispatch(actions.setTouched(`deep.${model}`));
     },
 
-    fetch(model, params = null) {
+    fetch(model, params = null, parent = null) {
       dispatch({ type: 'REQUEST_START' });
-      modelHelper.fetchModel(model, dispatch, this.history, params);
+      modelHelper.fetchModel(model, dispatch, this.history, params, parent);
     },
 
     setValid(field) {
       dispatch(actions.setErrors(field, false));
     },
 
-    submit(model, params, is_modal = false) {
+    submit(model, params, is_modal = false, parent = null) {
       dispatch({ type: 'REQUEST_START' });
-      return modelHelper.submitModel(model, params, dispatch, this.history, is_modal);
+      return modelHelper.submitModel(model, params, dispatch, this.history, is_modal, parent);
     },
 
     reset(model) {
@@ -40,7 +40,7 @@ export default function mapDispatchToProps(dispatch) {
       history.push(`/${pluralize(model)}`);
     },
 
-    fetchByUrl(url, collection, parmas = null){
+    fetchByUrl(url, collection, parmas = null, parent = null){
       modelHelper.fetchByUrlModel(url, collection, dispatch, parmas);
     },
   };

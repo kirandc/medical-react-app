@@ -6,35 +6,36 @@ import headerConfig from './headerConfig';
 
 import { SERVICE_URL } from '../Constants.js';
 
-export const getUrl = (model, params = null) => {
-  //for now hardcoaded api/v1
-  const baseURL = `${SERVICE_URL}/${pluralize(model)}`;
-  if (params) {
-    return `${baseURL}?${toQueryString(params)}`;
+export const getUrl = (model, params: null, parent: null) => {
+  let baseURL
+  if(parent){
+    baseURL = `${SERVICE_URL}/${parent['type']}/${parent['id']}/${pluralize(model)}`
+  }else{
+    baseURL = `${SERVICE_URL}/${pluralize(model)}`;
   }
   return baseURL;
 };
 
 export const apiConfig = {
-  list(model, params) {
+  list(model, params, parent: null) {
     return (
       {
-        url: getUrl(model, params),
+        url: getUrl(model, params, parent: null),
         method: 'get',
         headers: headerConfig.get(),
       }
     );
   },
-  create(model, params) {
+  create(model, params, parent: null) {
     return ({
       data: JSON.stringify(params),
-      url: getUrl(model),
+      url: getUrl(model, params, parent: null),
       method: 'post',
       headers: headerConfig.get(),
     });
   },
-  update(model, params) {
-    const baseUrl = getUrl(model);
+  update(model, params, parent: null) {
+    const baseUrl = getUrl(model, params, parent: null);
     const id = params[`${model}`].id;
     return (
       {
@@ -45,9 +46,9 @@ export const apiConfig = {
       }
     );
   },
-  get(model, id) {
+  get(model, id, params, parent: null) {
     return ({
-      url: `${getUrl(model)}/${id}`,
+      url: `${getUrl(model, params, parent: null)}/${id}`,
       method: 'get',
       headers: headerConfig.get(),
     });
@@ -55,17 +56,17 @@ export const apiConfig = {
 };
 
 const Api = {
-  list(model, params) {
-    return axios(apiConfig.list(model, params));
+  list(model, params, parent: null) {
+    return axios(apiConfig.list(model, params, parent: null));
   },
-  create(model, params) {
-    return axios(apiConfig.create(model, params));
+  create(model, params, parent: null) {
+    return axios(apiConfig.create(model, params, parent: null));
   },
-  update(model, params) {
-    return axios(apiConfig.update(model, params));
+  update(model, params, parent: null) {
+    return axios(apiConfig.update(model, params, parent: null));
   },
-  get(model, id) {
-    return axios(apiConfig.get(model, id));
+  get(model, id, params: null, parent: null) {
+    return axios(apiConfig.get(model, id, params, parent: null));
   }
 };
 

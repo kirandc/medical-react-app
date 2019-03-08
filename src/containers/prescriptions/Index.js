@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import PatientIndex from '../../components/patients/Index';
+import PrescriptionIndex from '../../components/prescriptions/Index';
 import dispatchHelper from '../dispatchHelpers/index';
 
 const mapStateToProps = (state, ownProps) => ({
-  patients: state.commonReducer.patients,
+  prescriptions: state.commonReducer.prescriptions,
 });
 
 const mapDispatchToProps = dispatch => dispatchHelper(dispatch);
-export default connect(mapStateToProps, mapDispatchToProps)(PatientIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(PrescriptionIndex);

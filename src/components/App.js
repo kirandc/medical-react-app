@@ -5,6 +5,9 @@ import PrivateRoute from './PrivateRoute';
 import Patient from '../containers/patients/Index';
 import PatientCreate from '../containers/patients/Create';
 import PatientShow from '../containers/patients/Show';
+import Prescription from '../containers/prescriptions/Index';
+import PrescriptionCreate from '../containers/prescriptions/Create';
+import PrescriptionShow from '../containers/prescriptions/Show';
 import PageNotFound from './PageNotFound';
 
 
@@ -12,7 +15,10 @@ const routes = [
   { path: '/', component: Patient},
   { path: '/patients', component: Patient},
   { path: '/patients/new', component: PatientCreate},
-  { path: '/patient/:id', component: PatientShow},
+  { path: '/patients/:id', component: PatientShow},
+  { path: '/patients/:id/prescriptions', component: Prescription},
+  { path: '/patients/:patient_id/prescriptions/new', component: PrescriptionCreate},
+  { path: '/patients/:patient_id/prescriptions/:id', component: PrescriptionShow},
 ]
 
 const App = () => (

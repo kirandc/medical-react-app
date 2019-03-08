@@ -23,7 +23,7 @@ class Index extends React.Component  {
   }
 
   actionButton (url, row) {
-    return (<Link to={`/patient/${row.id}`} color="primary" size="sm" className=""><i className="fa fa-sticky-note"></i></Link>)
+    return (<Link to={`/patients/${row.id}`} color="primary" size="sm" className=""><i className="fa fa-sticky-note"></i></Link>)
   }
 
   searchUpdated (term) {
@@ -43,8 +43,7 @@ class Index extends React.Component  {
       dataField: 'user.mobile',
       text: 'Mobile',
       sort: true
-    },
-    {
+    },{
       dataField: 'user.gender',
       text: 'Gender',
       sort: true

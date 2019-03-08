@@ -23,24 +23,24 @@ const canLoadFromStore = (modelList, model) => (
   modelList && modelList.length > 0
 );
 
-const fetchFromBackend = (dispatch, model, id, history) => {
-  Api.get(model, id)
+const fetchFromBackend = (dispatch, model, id, params: null, history, parent: null) => {
+  Api.get(model, id, params, parent)
     .then((response) => {
       const data = modifyData(model, response.data.data[model]);
-      return dispatch(actions.load(`deep.${model}`, data));
+      //return dispatch(actions.load(`deep.${model}`, data));
     }).catch((error) => {
       Timeout(error, dispatch, history);
     });
 };
 
-const loadModel = (model, modelList, id, dispatch, history) => {
+const loadModel = (model, modelList, id, params: null, dispatch, history, parent: null) => {
   if (!id) { return loadEmptyModel(dispatch, model); }
 
   if (canLoadFromStore(modelList, model)) {
     return loadFromStore(dispatch, id, model, modelList);
   }
 
-  return fetchFromBackend(dispatch, model, id, history);
+  return fetchFromBackend(dispatch, model, id, params, history, parent);
 };
 
 export default loadModel;
