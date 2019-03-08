@@ -1,0 +1,26 @@
+/* Core variables and mixins */
+.gm-header {
+  height: 6rem;
+  background-color: #fff;
+  border-bottom: 1px solid;
+  padding: 1.5625rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center; }
+  .gm-header h1 {
+    font-size: 24px;
+    line-height: 1;
+    margin: 0;
+    padding: 0; }

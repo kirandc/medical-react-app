@@ -1,0 +1,7 @@
+export const ADD_ALERT = 'ADD_ALERT';
+export const REMOVE_ALERT = 'REMOVE_ALERT';
+
+export const CLEAR_LIST = 'CLEAR_LIST';
+export const LIST_RESPONSE = 'LIST_RESPONSE';
+export const CREATE_RESPONSE = 'CREATE_RESPONSE';
+export const UPDATE_RESPONSE = 'UPDATE_RESPONSE';

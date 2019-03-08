@@ -1,0 +1,122 @@
+// Core variables and mixins
+@import '../../../assets/stylesheets/core';
+
+.form-control{
+  display: block;
+  width: 100%;
+  height: rem(44px);
+  font-size: rem(15px);
+  line-height: rem(30px);
+  font-weight: 400;
+  color: map_get($colors, 'gray-25');
+  padding: rem(6px 10px);
+  border: 1px solid map-get($colors, 'gray-80');
+  @include border-radius(2px);
+  @include tab-focus();
+
+  &::-webkit-input-placeholder {
+    font-style: italic;
+    color: map_get($colors, 'gray-62');
+  }
+
+  &::-moz-placeholder {
+    font-style: italic;
+    color: map_get($colors, 'gray-62');
+  }
+
+  &:-ms-input-placeholder {
+    font-style: italic;
+    color: map_get($colors, 'gray-62');
+  }
+
+  &:-moz-placeholder {
+    font-style: italic;
+    color: map_get($colors, 'gray-62');
+  }
+}
+
+
+.error-block{
+  display: inline-block;
+  margin-top: 5px;
+
+  > span{
+    color: map_get($colors, 'red');
+
+  }
+}
+
+
+input[type="search"]{
+  box-sizing: border-box;
+}
+
+
+.form-control.disabled, .form-control:disabled {
+  cursor: not-allowed;
+  background-color: map_get($colors, 'gray-89');
+}
+
+// input[type='file'] custom scss
+.file-upload-group{
+  position: relative;
+  overflow: hidden;
+  @include clearfix();
+
+  > .form-control{
+    float: left;
+    background-color: transparent;
+
+    &::-webkit-input-placeholder {
+      color: map_get($colors, 'gray-62');
+    }
+
+    &::-moz-placeholder {
+      color: map_get($colors, 'gray-62');
+    }
+
+    &:-ms-input-placeholder {
+      color: map_get($colors, 'gray-62');
+    }
+
+    &:-moz-placeholder {
+      color: map_get($colors, 'gray-62');
+    }
+  }
+}
+
+.button--browse{
+  float: right;
+  //display: block;
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  margin: 0;
+  background-color: map_get($colors, 'gray-89');
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  border-left: 1px solid map_get($colors, 'gray-80');
+  @include border-radius(0);
+  letter-spacing: 0;
+
+  .form-control--file{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    border: none;
+    height: auto;
+  }
+}
+
+.description{
+  height: 100% !important;
+}

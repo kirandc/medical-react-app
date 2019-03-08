@@ -1,0 +1,12 @@
+@import './assets/stylesheets/font-awesome.min.css';
+@import './assets/stylesheets/style.min.css';
+@import './assets/stylesheets/print.css';
+@import './assets/stylesheets/modals.css';
+@import './assets/stylesheets/buttons.css';
+@import './assets/stylesheets/fonts.css';
+@import './assets/stylesheets/font-awesome-overrides.css';
+@import './assets/stylesheets/html2canvas.css';
+
+.error-block{
+	color: red;
+}

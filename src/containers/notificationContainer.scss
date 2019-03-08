@@ -1,0 +1,85 @@
+// Core variables and mixins
+@import '../assets/stylesheets/core';
+
+// Header SCSS
+.gm-header {
+  height: rem(96px);
+  background-color: map-get($colors, 'white');
+  border-bottom: 1px solid map-get($colors, 'gray-80');
+  padding: rem(25px);
+  @include flexbox();
+  @include justify-content(space-between);
+  @include align-items(center);
+
+  h1 {
+    font-size: 24px;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.message {
+  position: relative;
+  min-height: 1em;
+  margin: 0 0 1em 0;
+  background: map_get($colors, 'gray-45');
+  padding: .9rem 2.5rem 0.9rem 1.5rem;
+  line-height: 1.4285em;
+  color: #fff;
+  border-radius: 4px;
+
+  &:after {
+    content: "x";
+    font-family: 'go-mart-icons';
+    color: #fff;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: inline-block;
+  }
+
+}
+
+.message li {
+  list-style: none
+}
+
+.message--error {
+  background: map_get($colors, 'red');
+}
+
+.message--warning {
+  background: map_get($colors, 'yellow');
+}
+
+.message--success {
+  background: map_get($colors, 'green');
+}
+
+.message ul, .message ul li:last-child, .message > :last-child {
+  margin-bottom: 0
+}
+
+.message p {
+  margin: 0
+}
+
+.notification-show {
+  display: block;
+}
+
+.notification-hidden {
+  display: none;
+}
+
+.notification-wrapper{
+  position: fixed;
+  right: 50px;
+  top: 15px;
+  z-index: 9;
+  width: max-content;
+  margin: 0 auto;
+}

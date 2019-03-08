@@ -1,0 +1,12 @@
+/* Core variables and mixins */
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "variables";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "mixins";
+@import "../../../node_modules/bootstrap/scss/mixins";
+// rem unit mixin
+@import '../../../node_modules/sass-rem/_rem.scss';
+// Enable this function for px unit
+//@function rem($values...) {
+//    @return $values;
+//}

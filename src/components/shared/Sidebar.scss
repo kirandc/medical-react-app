@@ -1,0 +1,191 @@
+@import "../../assets/stylesheets/core";
+//src/components/shared/Sidebar.scss
+
+$sidebar-width-open: rem(190px);
+$sidebar-width: rem(56px);
+
+.ss-app-sidebar {
+  width: $sidebar-width;
+  @include transition(all 0.3s ease-in-out);
+  //transition: all 0.3s ease-out;
+  overflow: hidden;
+  background-color: $side-bg;
+  padding: rem(2px);
+  position: relative;
+
+  .sidebar-overlay {
+    position: fixed;
+    width: $sidebar-width;
+    top: rem(62px);
+    left: 0;
+    bottom: rem(62px);
+  }
+
+  .sidebar-inner {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .logo-link {
+    display: block;
+    white-space: nowrap;
+    height: rem(52px);
+    padding: rem(10px);
+    outline: 0;
+    text-decoration: none;
+    line-height: 1;
+    cursor: pointer;
+    @include transition(all 0.3s ease-in-out);
+    &:hover, &:focus, &:active {
+      background-color: darken($side-bg, 10%);
+      @include border-radius(50%);
+    }
+
+    > svg {
+      height: rem(32px);
+      display: inline-block;
+    }
+    > svg#StarLogo {
+      width: rem(32px);
+    }
+    > svg#StarText {
+      padding-left: 5px;
+    }
+  }
+
+  .sidebar-menu {
+    list-style-type: none;
+
+    li {
+
+      a {
+        color: #FFF;
+        display: inline-block;
+        padding: rem(10px);
+        line-height: rem(20px);
+        cursor: pointer;
+        @include transition(all 0.3s ease-in-out);
+
+        &:hover, &:focus, &:active {
+          background-color: darken($side-bg, 10%);
+          @include border-radius(50%);
+          color: #FFF;
+        }
+
+        i {
+          font-size: rem(16px);
+           line-height: rem(20px);
+          padding: rem(0 9px);
+        }
+
+        span {
+          display: inline-block;
+          line-height: rem(20px);
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &.open {
+    width: $sidebar-width-open;
+    @include transition(all 0.3s ease-in-out);
+
+    .logo-link {
+
+      &:hover, &:focus, &:active {
+        @include border-radius(0);
+      }
+    }
+    .sidebar-overlay {
+      display: none;
+    }
+    .sidebar-menu {
+      li {
+        a {
+          &:hover, &:focus, &:active {
+            @include border-radius(0);
+          }
+          span {
+            display: block !important;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+
+    .sidebar-submenu {
+      @include border-radius(0);
+      @include transition(all 0.3s ease-in-out);
+
+      li {
+        border-bottom: 1px solid #5f5f5f;
+        a {
+          padding: rem(8px 10px 8px 44px);
+        }
+      }
+    }
+
+    .sidebar-footer {
+
+      a {
+
+        &:hover, &:focus, &:active {
+          @include border-radius(0);
+        }
+      }
+
+      span {
+        display: block !important;
+        white-space: nowrap;
+      }
+    }
+  }
+
+}
+
+.sidebar-footer {
+
+  > a {
+    text-align: center;
+    cursor: pointer;
+    padding: rem(10px);
+    @include transition(all 0.3s ease-in-out);
+
+    &:hover, &:focus, &:active {
+      background-color: darken($side-bg, 10%);
+      @include border-radius(50%);
+    }
+  }
+
+  i {
+    font-size: rem(20px);
+    line-height: rem(32px);
+    padding: rem(0 9px);
+  }
+}
+
+.sidebar-content {
+  @include flex(1);
+}
+
+
+
+.sidebar-submenu {
+  background-color: lighten($side-bg, 10%);
+  list-style-type: none;
+  @include border-radius(30px);
+  @include transition(all 0.3s ease-in-out);
+
+  li {
+
+    a {
+
+      i {
+        font-size: rem(18px);
+        padding: rem(0 11px);
+      }
+    }
+  }
+}
