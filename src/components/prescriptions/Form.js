@@ -46,7 +46,7 @@ export default class PrescriptionForm extends React.Component {
         </div>
         <div className="form-row">
           <Button type="submit" color="primary">Save</Button>
-          <Button color="secondary" onClick={() => this.props.handleCancel('prescription', this.props.history)}>Cancel</Button>
+          <Button color="secondary" onClick={() => this.props.handleCancel('prescription', this.props.history, {type: 'patient', id: this.props.patientId})}>Cancel</Button>
           </div>
       </Form>
     )

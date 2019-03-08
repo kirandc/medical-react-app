@@ -2,6 +2,7 @@ import { actions } from 'react-redux-form';
 import * as modelHelper from './modelHelpers/modelHelpers';
 import { pluralize } from '../../utils';
 import { addAlert } from '../../actionCreators/notificationActionCreators';
+import _ from 'lodash';
 
 export default function mapDispatchToProps(dispatch) {
   return {
@@ -35,9 +36,18 @@ export default function mapDispatchToProps(dispatch) {
       return dispatch(actions.reset(`deep.${model}`));
     },
 
-    handleCancel(model, history) {
+    handleCancel(model, history, parentResourceDetails = {}) {
+      let url = ''
+      let redirectTo;
       dispatch(actions.reset(`deep.${model}`));
-      history.push(`/${pluralize(model)}`);
+      if(!_.isEmpty(parentResourceDetails)){
+        let parentResourceType = parentResourceDetails['type']
+        let parentResourceId = parentResourceDetails['id']
+        url += `/${pluralize(parentResourceType)}/${parentResourceId}`
+      }
+      url += `/${pluralize(model)}`
+      if(redirectTo){ url += `/${redirectTo}` }
+      history.push(url);
     },
 
     fetchByUrl(url, collection, parmas = null, parent = null){

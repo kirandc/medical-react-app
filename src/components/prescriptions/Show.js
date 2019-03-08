@@ -5,10 +5,17 @@ import PrescriptionForm from './Form';
 import { getId } from '../../utils';
 import { emptyArray } from '../../utils';
 export default class PrescriptionShow extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      patientId: null
+    }
+  }
 
   componentWillMount() {
     const id = getId(this.props);
     const patient_id = getId(this.props, 'patient_id');
+    this.setState({patientId: patient_id})
     this.props.load('prescription', this.props.prescriptions, id, null, {type: 'patient', id: patient_id});
   }
 
@@ -29,7 +36,7 @@ export default class PrescriptionShow extends React.Component {
           <label>Instruction :</label> {this.props.prescription.instructions}
         </div>
         <div>
-          <Button color="secondary" onClick={() => this.props.handleCancel('prescription', this.props.history)}>Cancel</Button>
+          <Button color="secondary" onClick={() => this.props.handleCancel('prescription', this.props.history, {type: 'patient', id: this.state.patientId})}>Cancel</Button>
         </div>
       </div>
     )

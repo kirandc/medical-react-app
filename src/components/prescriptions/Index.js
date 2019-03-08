@@ -27,7 +27,6 @@ class Index extends React.Component  {
   }
 
   render(){
-    console.log(this.props.prescriptions , 'dddd')
     const columns = [
     {
       dataField: 'date',

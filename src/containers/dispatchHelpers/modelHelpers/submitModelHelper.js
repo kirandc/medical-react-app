@@ -39,7 +39,11 @@ const submitModel = (model, params, dispatch, history, is_modal, parent: null,) 
     const data = modifyData(model, response.data.data);
     dispatch(actions.reset(`deep.${model}`));
     if(!is_modal){
-      history.push(`/${pluralize(model)}`);
+      if(parent){
+        history.push(`/${parent.type}/${parent.id}/${pluralize(model)}`)
+      }else{
+        history.push(`/${pluralize(model)}`);
+      }
     }
     dispatch(addAlert(response.data.message, 'success'));
   })
