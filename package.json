@@ -42,7 +42,13 @@
     "redux-thunk": "^2.2.0",
     "resolve-pathname": "2.2.0",
     "sass-rem": "^2.0.0",
-    "value-equal": "0.4.0"
+    "value-equal": "0.4.0",
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "jest-localstorage-mock": "^2.2.0"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
@@ -52,14 +58,6 @@
     "build": "npm run build-css && react-scripts build",
     "test": "jest",
     "eject": "react-scripts eject"
-  },
-  "devDependencies": {
-    "eslint": "^4.18.2",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.9.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.7.0",
-    "jest-localstorage-mock": "^2.2.0"
   },
   "jest": {
     "setupFiles": [
